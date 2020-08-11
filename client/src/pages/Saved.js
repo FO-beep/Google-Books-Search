@@ -43,6 +43,9 @@ class Saved extends Component {
               >
                 <strong> Google Books Search</strong>
               </h1>
+              <h3 className=" text-center" style={{ color: "black" }}>
+                <strong> Search for and Save Books of Interest </strong>
+              </h3>
             </Jumbotron>
           </Col>
         </Row>

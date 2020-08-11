@@ -14,7 +14,7 @@ class Home extends Component {
   state = {
     books: [],
     q: "",
-    message: "Search For A Book To Begin!",
+    message: "Explore by Searching!",
   };
 
   handleInputChange = (event) => {
@@ -70,6 +70,9 @@ class Home extends Component {
               >
                 <strong> Google Books Search </strong>
               </h1>
+              <h3 className=" text-center" style={{ color: "black" }}>
+                <strong> Search for and Save Books of Interest </strong>
+              </h3>
             </Jumbotron>
           </Col>
 
