@@ -5,7 +5,7 @@ import "./style.css";
 class Nav extends Component {
   state = {
     open: false,
-    width: window.innerWidth
+    width: window.innerWidth,
   };
 
   updateWidth = () => {
@@ -47,24 +47,35 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+        <div
+          className={`${this.state.open ? "" : "collapse "}navbar-collapse`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/"
               >
-                Search
+                <strong>Search </strong>
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/saved"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/saved"
               >
-                Saved
+                <strong>Saved</strong>
               </Link>
             </li>
           </ul>
