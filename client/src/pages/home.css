@@ -1,0 +1,17 @@
+.main {
+  background-image: url("../assets/bookpic2.jpeg");
+
+  position: relative;
+  opacity: 1.95;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 150vh;
+}
+#root {
+  background-color: darkslategrey;
+}
+
+.saved {
+  background-image: url("../assets/bookpic1.jpeg");
+}
