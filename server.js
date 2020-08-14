@@ -1,5 +1,5 @@
 const express = require("express");
-
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -12,6 +12,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// Add routes, both API and view
+app.use(routes);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -19,9 +22,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
-
-// Add routes, both API and view
-app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
