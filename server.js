@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+// const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -10,18 +10,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets
 
-app.use(express.static("public"));
+console.log("PID: ", process.pid);
 
 // Add routes, both API and view
-app.use(routes);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
+// app.use("/test", routes);
+console.log("Node Env: ", process.env.NODE_ENV);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
@@ -31,6 +24,14 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
   useFindAndModify: false,
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    console.log("Another Test...");
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
 // Start the API server
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
